@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Savoyea_Offers::savoyeaoffers" title="Offres" translate="title" module="Savoyea_Offers" sortOrder="50" dependsOnModule="Savoyea_Offers" resource="Savoyea_Offers::offers"/>
+        <add id="Savoyea_Offers::categoriesoffers" title="Ajouter des offres" translate="title" module="Savoyea_Offers" parent="Savoyea_Offers::savoyeaoffers" sortOrder="10" dependsOnModule="Savoyea_Offers" action="savoyea_offers/categories_offers" resource="Savoyea_Offers::categories_offers"/>
+    </menu>
+</config>

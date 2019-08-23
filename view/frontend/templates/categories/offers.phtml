@@ -1,0 +1,33 @@
+<?php
+/** @var \Savoyea\Module\Block\Categories\Offers $block */
+?>
+<?php $helper = $this->helper('Savoyea\Offers\Helper\Data'); ?>
+<?php $mediaUrl = $this ->_storeManager-> getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA ); ?>
+
+<?php $offersCollection = $block->getOffersCollection($block->getCurrentCategory()); ?>
+
+<?php if ($offersCollection->getSize() > 0) : ?>
+    <div class="slideshow-container">
+        <?php if ($offersCollection->getSize() > 1) : ?>
+            <a class="prev change_slide" data-index="-1">&#10094;</a>
+            <a class="next change_slide" data-index="1">&#10095;</a>
+        <?php endif; ?>
+        <div class="container_slides">
+            <?php foreach($offersCollection as $item) : ?>
+                <div class="slide fade">
+                    <?php if ($item->getImage()) : ?>
+                        <div class="slide_img" style="background-image: url('<?php echo $mediaUrl . $helper->getCategoriesOffersImagePathUpload() . $item->getImage(); ?>');"></div>
+                    <?php endif; ?>
+                    <div class="slide_content">
+                        <p><?php echo $item->getLabel(); ?></p>
+                    </div>
+                    <?php if ($item->getUrl()) : ?>
+                        <div class="slide_link">
+                            <a href="<?php echo $item->getUrl(); ?>" class="btn read_more">En savoir plus</a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>

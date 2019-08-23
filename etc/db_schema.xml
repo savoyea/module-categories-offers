@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="categories_offers" resource="default" engine="innodb" comment="Categories Offers Table">
+        <column xsi:type="smallint" name="entity_id" padding="6" unsigned="false" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="label" nullable="false" length="255" comment="Offer Label"/>
+        <column xsi:type="varchar" name="url" nullable="true" length="255" comment="Offer Url"/>
+        <column xsi:type="text" name="image" nullable="true" comment="Offer Image"/>
+        <column xsi:type="text" name="categories" nullable="true" comment="Offer Categories"/>
+        <column xsi:type="date" name="begin_date" nullable="true" comment="Offer Begin Date"/>
+        <column xsi:type="date" name="end_date" nullable="true" comment="Offer End Date"/>
+        <column xsi:type="varchar" name="priority" nullable="true" comment="Offer Priority"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="SAVOYEA_OFFERS_LABEL_CATEGORIES" indexType="fulltext">
+            <column name="label"/>
+            <column name="categories"/>
+        </index>
+    </table>
+</schema>
