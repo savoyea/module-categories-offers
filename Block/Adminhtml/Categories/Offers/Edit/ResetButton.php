@@ -2,6 +2,7 @@
 namespace Savoyea\Offers\Block\Adminhtml\Categories\Offers\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
+use Savoyea\Offers\Block\Adminhtml\Categories\Offers\Edit\GenericButton;
 
 class ResetButton extends GenericButton implements ButtonProviderInterface
 {
