@@ -25,6 +25,11 @@ class Index extends \Magento\Backend\App\Action
         $this->resultPageFactory = $resultPageFactory;
     }
 
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Savoyea_Offers::offers');
+    }
+
     /**
      * Load the page defined in view/adminhtml/layout/savoyea_offers_index.xml
      *

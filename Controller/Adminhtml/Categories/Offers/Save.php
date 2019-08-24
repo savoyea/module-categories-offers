@@ -20,6 +20,11 @@ class Save extends \Magento\Backend\App\Action
         parent::__construct($context);
     }
 
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Savoyea_Offers::offers');
+    }
+
     public function execute()
     {
         $resultRedirect = $this->resultRedirectFactory->create();
